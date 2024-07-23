@@ -1,0 +1,57 @@
+<% layout("./layouts/boilerplate") -%>
+<body>
+    <div class="row">
+        <div class="col-8 offset-2">
+    <h1>Edit</h1>
+    <form method="post" action="/listings/<%=listing._id%>/?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data">
+        
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input value="<%=listing.title %>" name="listing[title]" type="text" class="form-control" required>
+            <div class="valid-feedback">
+            Cool Title!
+          </div>
+          <div class="invalid-feedback">
+            Enter Title!
+          </div>
+        </div>
+        
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea name="listing[description]" type="text" class="form-control" required><%=listing.description %></textarea>
+        </div>
+        
+        <div class="mb-3">
+            Previous Image<br>
+            <img src="<%= originalUrl %>">
+        </div>
+
+        <div class="mb-3">
+            <label for="image" class="form-label">Upload New Image</label>
+            <input name="listing[image]" type="file" class="form-control">
+        </div>
+        
+        <div class="row">
+            <div class="mb-3 col-md-4">
+                <label for="price" class="form-label">Price</label>
+                <input value="<%=listing.price %>" name="listing[price]" type="number" class="form-control" required>
+            </div>
+            
+            <div class="mb-3 col-md-8">
+                <label for="country" class="form-label">Country</label>
+                <input value="<%=listing.country %>" name="listing[country]" type="text" class="form-control" required> 
+            </div>
+        </div>
+        
+        
+        <div class="mb-3">
+            <label for="location" class="form-label">Location</label>
+            <input value="<%=listing.location %>" name="listing[location]" type="text" class="form-control" required>
+        </div>
+        
+        <button class="btn btn-dark edit-btn mt-3">Edit</button>
+        <br><br>
+    </form>
+</div>
+</div>
+</body>
